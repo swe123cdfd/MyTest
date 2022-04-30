@@ -1,0 +1,104 @@
+  [1m[35m (194.0ms)[0m  [1m[35mCREATE DATABASE "Short_Url_development" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "shortcodes" CASCADE[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "shortcodes" ("id" bigserial primary key, "original_url" character varying, "short_url" character varying, "popularity" integer, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211116005940)[0m
+  [1m[35m (11.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201116005940);
+
+[0m
+  [1m[35m (178.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-30 19:33:53.165945"], ["updated_at", "2022-04-30 19:33:53.165945"]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "db438f8a4eb13cb01bd40acd3490c533fb8c9e29"], ["created_at", "2022-04-30 19:33:53.206612"], ["updated_at", "2022-04-30 19:33:53.206612"]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2395524049000995990)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2395524049000995990)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 172.20.0.1 at 2022-04-30 19:36:07 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ShortcodesController#index as HTML
+Filter chain halted as #<Proc:0x00005610a69b2f78 /usr/local/bundle/gems/actionpack-6.0.4.6/lib/action_controller/metal/http_authentication.rb:73> rendered or redirected
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms | Allocations: 237)
+
+
+Started GET "/" for 172.20.0.1 at 2022-04-30 19:36:17 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortcodesController#index as HTML
+  Rendering shortcodes/index.html.erb within layouts/application
+  [1m[36mShortcode Load (0.8ms)[0m  [1m[34mSELECT "shortcodes".* FROM "shortcodes" ORDER BY popularity DESC[0m
+  ↳ app/views/shortcodes/index.html.erb:3
+  Rendered shortcodes/index.html.erb within layouts/application (Duration: 35.4ms | Allocations: 1510)
+Completed 200 OK in 1262ms (Views: 1198.5ms | ActiveRecord: 4.3ms | Allocations: 17387)
+
+
+Started GET "/" for 172.20.0.1 at 2022-04-30 19:36:23 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortcodesController#index as HTML
+  Rendering shortcodes/index.html.erb within layouts/application
+  [1m[36mShortcode Load (0.6ms)[0m  [1m[34mSELECT "shortcodes".* FROM "shortcodes" ORDER BY popularity DESC[0m
+  ↳ app/views/shortcodes/index.html.erb:3
+  Rendered shortcodes/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 636)
+Completed 200 OK in 168ms (Views: 166.1ms | ActiveRecord: 0.6ms | Allocations: 3005)
+
+
+Started GET "/shortcodes/new" for 172.20.0.1 at 2022-04-30 19:36:33 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortcodesController#new as HTML
+  Rendering shortcodes/new.html.erb within layouts/application
+  Rendered shortcodes/new.html.erb within layouts/application (Duration: 463.6ms | Allocations: 3888)
+Completed 200 OK in 721ms (Views: 684.1ms | ActiveRecord: 3.6ms | Allocations: 9900)
+
+
+Started POST "/shortcodes" for 172.20.0.1 at 2022-04-30 19:36:45 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortcodesController#create as HTML
+  Parameters: {"authenticity_token"=>"zV4F02Dom1Dfpqr1DacF3JcqBh+03Xbw9IAqjWB5t3+ZuPK412GB4yGbHg1Uk5OvMVZxabD1hlofIq5b1Rfizg==", "shortcode"=>{"original_url"=>"https://www.google.com/search?q=how+to+run+app+in+docker&rlz=1C1CHZL_enIN859IN882&oq=how+to+run+app+in+docker&aqs=chrome..69i57.8160j0j4&sourceid=chrome&ie=UTF-8"}, "commit"=>"Save Shortcode"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/shortcodes_controller.rb:43:in `create'
+  [1m[36mShortcode Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "shortcodes" WHERE "shortcodes"."original_url" = $1 AND "shortcodes"."original_url" = $2 LIMIT $3[0m  [["original_url", "https://www.google.com/search?q=how+to+run+app+in+docker&rlz=1C1CHZL_enIN859IN882&oq=how+to+run+app+in+docker&aqs=chrome..69i57.8160j0j4&sourceid=chrome&ie=UTF-8"], ["original_url", "https://www.google.com/search?q=how+to+run+app+in+docker&rlz=1C1CHZL_enIN859IN882&oq=how+to+run+app+in+docker&aqs=chrome..69i57.8160j0j4&sourceid=chrome&ie=UTF-8"], ["LIMIT", 1]]
+  ↳ app/controllers/shortcodes_controller.rb:43:in `create'
+  [1m[36mShortcode Create (0.8ms)[0m  [1m[32mINSERT INTO "shortcodes" ("original_url", "short_url", "popularity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["original_url", "https://www.google.com/search?q=how+to+run+app+in+docker&rlz=1C1CHZL_enIN859IN882&oq=how+to+run+app+in+docker&aqs=chrome..69i57.8160j0j4&sourceid=chrome&ie=UTF-8"], ["short_url", "blk"], ["popularity", 1], ["created_at", "2022-04-30 19:36:46.014957"], ["updated_at", "2022-04-30 19:36:46.014957"]]
+  ↳ app/controllers/shortcodes_controller.rb:43:in `create'
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/shortcodes_controller.rb:43:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 6b791277-4d1c-4f68-bee3-179c9e9935ce) to Async(default) with arguments: 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 599ms (ActiveRecord: 5.8ms | Allocations: 11845)
+
+
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce] Performing UpdateTitleJob (Job ID: 6b791277-4d1c-4f68-bee3-179c9e9935ce) from Async(default) enqueued at 2022-04-30T19:36:46Z with arguments: 1
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   [1m[36mShortcode Load (0.5ms)[0m  [1m[34mSELECT "shortcodes".* FROM "shortcodes" WHERE "shortcodes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   ↳ app/jobs/update_title_job.rb:8:in `perform'
+Started GET "/" for 172.20.0.1 at 2022-04-30 19:36:46 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortcodesController#index as HTML
+  Rendering shortcodes/index.html.erb within layouts/application
+  [1m[36mShortcode Load (1.1ms)[0m  [1m[34mSELECT "shortcodes".* FROM "shortcodes" ORDER BY popularity DESC[0m
+  ↳ app/views/shortcodes/index.html.erb:3
+  Rendered shortcodes/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 777)
+Completed 200 OK in 112ms (Views: 110.0ms | ActiveRecord: 1.1ms | Allocations: 3415)
+
+
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   ↳ app/jobs/update_title_job.rb:9:in `perform'
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   [1m[36mShortcode Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "shortcodes" WHERE "shortcodes"."original_url" = $1 AND "shortcodes"."id" != $2 AND "shortcodes"."original_url" = $3 LIMIT $4[0m  [["original_url", "https://www.google.com/search?q=how+to+run+app+in+docker&rlz=1C1CHZL_enIN859IN882&oq=how+to+run+app+in+docker&aqs=chrome..69i57.8160j0j4&sourceid=chrome&ie=UTF-8"], ["id", 1], ["original_url", "https://www.google.com/search?q=how+to+run+app+in+docker&rlz=1C1CHZL_enIN859IN882&oq=how+to+run+app+in+docker&aqs=chrome..69i57.8160j0j4&sourceid=chrome&ie=UTF-8"], ["LIMIT", 1]]
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   ↳ app/jobs/update_title_job.rb:9:in `perform'
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   [1m[36mShortcode Update (0.6ms)[0m  [1m[33mUPDATE "shortcodes" SET "title" = $1, "updated_at" = $2 WHERE "shortcodes"."id" = $3[0m  [["title", "how to run app in docker - Google Search"], ["updated_at", "2022-04-30 19:36:47.266892"], ["id", 1]]
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   ↳ app/jobs/update_title_job.rb:9:in `perform'
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce]   ↳ app/jobs/update_title_job.rb:9:in `perform'
+[ActiveJob] [UpdateTitleJob] [6b791277-4d1c-4f68-bee3-179c9e9935ce] Performed UpdateTitleJob (Job ID: 6b791277-4d1c-4f68-bee3-179c9e9935ce) from Async(default) in 687.89ms
